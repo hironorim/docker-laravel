@@ -17,9 +17,9 @@ PHP + Nginx + MySQLをDockerで動作させ、laravelフレームワークを使
 
 ## ローカル開発環境構築
 - 以下からDockerDesktopのWindows版をダウンロードしインストールする
-https://hub.docker.com/editions/community/docker-ce-desktop-windows
+   - https://hub.docker.com/editions/community/docker-ce-desktop-windows
 - 以下からVisualStudio CodeのWindows版をダウンロードしインストールする
-https://code.visualstudio.com/download
+  - https://code.visualstudio.com/download
 - VisualStudioCodeを起動してサイドナビの拡張機能アイコンをクリック
 - 下記拡張機能を検索してインストールする
   - Docker
