@@ -8,12 +8,14 @@ PHP + Nginx + MySQLをDockerで動作させ、laravelフレームワークを使
 - laravel公式サイト
   - http://laravel.jp/
   - https://laravel.com/
-- Visual Studio CodeでPHPをデバッグする方法
-  - https://qiita.com/deux222/items/af75319ece05653c4bb5
 - Composerについて
   - https://qiita.com/niisan-tokyo/items/8cccec88d45f38171c94
 - Visual Studio Codeの使い方
   - https://www.atmarkit.co.jp/ait/articles/1507/10/news028.html
+- Visual Studio CodeでのGitの基本操作まとめ
+   - https://qiita.com/y-tsutsu/items/2ba96b16b220fb5913be
+- Visual Studio CodeでPHPをデバッグする方法
+  - https://qiita.com/deux222/items/af75319ece05653c4bb5
 
 ## ローカル開発環境構築
 - 以下からDockerDesktopのWindows版をダウンロードしインストールする
@@ -27,8 +29,11 @@ PHP + Nginx + MySQLをDockerで動作させ、laravelフレームワークを使
   - Japanese Language Pack for Visual Studio Code
   - PHP Debug
   - PHP Intelephense
+- 以下からHeidiSQLをダウンロードしてインストール
+  - https://www.heidisql.com/download.php?download=installer
 
 ## 初回コンテナ起動してプロジェクトを作成
+- DockerDesktopを起動
 - VisualStudioCodeの表示メニューからターミナルを選択
 - 画面下に表示されたターミナルで下記コマンドを実行
   - docker-compose up -d --build
@@ -49,8 +54,12 @@ PHP + Nginx + MySQLをDockerで動作させ、laravelフレームワークを使
 - VisualStudioCodeのターミナルで下記コマンドを実行
   - docker-compose stop
 
-## デバッグ実行を行う
+## PHPデバッグ実行を行う
 - VisualStudioCodeサイドナビの実行アイコンをクリック
 - サイドメニュー上部の再生ボタンをクリック
 - PHPソースコード上の任意行の列番号をクリックしブレークポイントを設定
 - PHPプログラムを実行するとブレークポイントを設定した位置でプログラムが停止し、F11でステップ実行ができます
+
+## データベースに接続
+ - HeidiSQLを起動
+ - IPは127.0.0.1、ポートは3306、ユーザー名はhomestead、パスワードはsecretを入力して開くボタンを押す
