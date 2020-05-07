@@ -6,9 +6,10 @@ services:
       args:
         - TZ=${TZ}
     volumes:
-      - ./src:/work:cached
+      - ./src:/work
       - ./logs:/var/log/php
       - ./docker/php/php.ini:/usr/local/etc/php/php.ini
+      - ./docker/php/disable_opcache.ini:/usr/local/etc/php/disable_opcache.ini
     working_dir: /work
     environment:
       - DB_CONNECTION=mysql
