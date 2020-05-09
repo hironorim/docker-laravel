@@ -10,7 +10,7 @@
             "request": "launch",
             "port": 9001,
             "pathMappings": {
-                "/work":"${workspaceRoot}/src"
+                "/var/www/html":"${workspaceRoot}/src"
             }
         },
         {
