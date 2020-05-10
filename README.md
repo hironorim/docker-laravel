@@ -32,6 +32,9 @@ PHP + Nginx(WEBサーバー) + MySQL(DBサーバー)をDockerで動作させ、l
 ## ローカル開発環境構築
 - 以下からDockerDesktopのWindows版をダウンロードしインストールする
    - https://hub.docker.com/editions/community/docker-ce-desktop-windows
+- 以下を参考に自分のPCユーザーをdocker-usersグループに所属させる
+   - https://qiita.com/toro_ponz/items/d75706a3039f00ba1205
+
 - 以下からVisualStudio CodeのWindowszip版をダウンロードして任意のフォルダに展開
   - https://code.visualstudio.com/download
 - VisualStudioCodeを起動してサイドナビの拡張機能アイコンをクリック
@@ -43,6 +46,7 @@ PHP + Nginx(WEBサーバー) + MySQL(DBサーバー)をDockerで動作させ、l
   - PHP Intelephense
 - SourceTreeに内蔵された下記gitフォルダにパスを通す
   - C:\Users\[ログインユーザー名]\AppData\Local\Atlassian\SourceTree\git_local\bin
+- SourceTreeをインストールしていない場合 Git for Windowsをダウンロードしてインストールする
 - パスを通す方法は以下を参照
   - https://qiita.com/shuhey/items/7ee0d25f14a997c9e285
 - 以下からHeidiSQLをダウンロードして任意のフォルダに展開
