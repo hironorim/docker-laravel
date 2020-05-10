@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="docker-laravel">docker-laravel</h1>
+<p>PHP + Nginx(WEBサーバー) + MySQL(DBサーバー)をDockerで動作させ、laravelフレームワークを使って開発を開始するための手順を説明する
+エディタはVisualStudioCode、DB接続クライアントはHeidiSQLを使用する</p>
+<h2 id="%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89%E3%81%AE%E5%8F%82%E8%80%83%E8%B3%87%E6%96%99">環境構築の参考資料</h2>
+<ul>
+<li>【図解】Dockerの全体像を理解する
+<ul>
+<li>https://qiita.com/etaroid/items/b1024c7d200a75b992fc</li>
+<li>https://qiita.com/kotaro-dr/items/88ec3a0e2d80d7cdf87a</li>
+</ul>
+</li>
+<li>Composer(PHPパッケージ管理ツール)について
+<ul>
+<li>https://qiita.com/niisan-tokyo/items/8cccec88d45f38171c94</li>
+</ul>
+</li>
+<li>Visual Studio Codeの使い方
+<ul>
+<li>https://www.atmarkit.co.jp/ait/articles/1507/10/news028.html</li>
+</ul>
+</li>
+<li>Visual Studio CodeでのGitの基本操作まとめ
+<ul>
+<li>https://qiita.com/y-tsutsu/items/2ba96b16b220fb5913be</li>
+</ul>
+</li>
+<li>Visual Studio CodeでPHPをデバッグする方法
+<ul>
+<li>https://qiita.com/deux222/items/af75319ece05653c4bb5</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E9%96%8B%E7%99%BA%E3%83%89%E3%82%AD%E3%83%A5%E3%83%A1%E3%83%B3%E3%83%88">開発ドキュメント</h2>
+<ul>
+<li>PHPドキュメント
+<ul>
+<li>https://www.php.net/manual/ja/index.php</li>
+</ul>
+</li>
+<li>日本語laravel公式サイト
+<ul>
+<li>http://laravel.jp/</li>
+</ul>
+</li>
+<li>英語laravel公式サイト
+<ul>
+<li>https://laravel.com/</li>
+</ul>
+</li>
+<li>larravelチュートリアル
+<ul>
+<li>https://hobby23.net/archives/laravel-tutorial/</li>
+</ul>
+</li>
+<li>nginxについてまとめ(設定編)
+<ul>
+<li>https://qiita.com/morrr/items/7c97f0d2e46f7a8ec967</li>
+</ul>
+</li>
+<li>Dockerドキュメント
+<ul>
+<li>http://docs.docker.jp/index.html</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89">ローカル開発環境構築</h2>
+<ul>
+<li>
+<p>以下からDockerDesktopのWindows版をダウンロードしインストールする</p>
+<ul>
+<li>https://hub.docker.com/editions/community/docker-ce-desktop-windows</li>
+</ul>
+</li>
+<li>
+<p>以下を参考に自分のPCユーザーをdocker-usersグループに所属させる</p>
+<ul>
+<li>https://qiita.com/toro_ponz/items/d75706a3039f00ba1205</li>
+</ul>
+</li>
+<li>
+<p>以下からVisualStudio CodeのWindowszip版をダウンロードして任意のフォルダに展開</p>
+<ul>
+<li>https://code.visualstudio.com/download</li>
+</ul>
+</li>
+<li>
+<p>VisualStudioCodeを起動してサイドナビの拡張機能アイコンをクリック</p>
+</li>
+<li>
+<p>下記拡張機能を検索してインストールする</p>
+<ul>
+<li>Docker</li>
+<li>Git History</li>
+<li>Japanese Language Pack for Visual Studio Code</li>
+<li>PHP Debug</li>
+<li>PHP Intelephense</li>
+</ul>
+</li>
+<li>
+<p>SourceTreeに内蔵された下記gitフォルダにパスを通す</p>
+<ul>
+<li>C:\Users[ログインユーザー名]\AppData\Local\Atlassian\SourceTree\git_local\bin</li>
+</ul>
+</li>
+<li>
+<p>SourceTreeをインストールしていない場合 Git for Windowsをダウンロードしてインストールする</p>
+</li>
+<li>
+<p>パスを通す方法は以下を参照</p>
+<ul>
+<li>https://qiita.com/shuhey/items/7ee0d25f14a997c9e285</li>
+</ul>
+</li>
+<li>
+<p>以下からHeidiSQLをダウンロードして任意のフォルダに展開</p>
+<ul>
+<li>https://www.heidisql.com/download.php?download=portable-64</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E5%88%9D%E5%9B%9E%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A%E8%B5%B7%E5%8B%95%E3%81%97%E3%81%A6%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%82%92%E4%BD%9C%E6%88%90">初回コンテナ起動してプロジェクトを作成</h2>
+<ul>
+<li>DockerDesktopを起動</li>
+<li>VisualStudioCodeの表示メニューからターミナルを選択</li>
+<li>画面下に表示されたターミナルで下記コマンドを実行
+<ul>
+<li>docker-compose build --no-cache --force-rm</li>
+<li>docker-compose up -d</li>
+</ul>
+</li>
+<li>ターミナルで以下のコマンドを実行してPHPコンテナにログイン
+<ul>
+<li>docker-compose exec php /bin/bash</li>
+</ul>
+</li>
+<li>コンテナにログイン後下記コマンドを実行してlaravelのプロジェクトを作成
+<ul>
+<li>composer create-project --prefer-dist laravel/laravel プロジェクト名</li>
+</ul>
+</li>
+<li>srcフォルダ内にプロジェクトフォルダが作成されその配下にソースコードが生成される
+中身をプロジェクトフォルダの同じ階層に移動し空のプロジェクトフォルダは削除する</li>
+<li>下記URLをブラウザで開くとＴOPページが表示される
+<ul>
+<li>http://localhost:5000/</li>
+</ul>
+</li>
+<li>storageフォルダのpermissionエラーが出たら下記コマンドを実行して書き込み権限を付与する
+<ul>
+<li>chmod -R 777 storage</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A%E5%81%9C%E6%AD%A2%E6%99%82%E3%81%AB%E8%A1%8C%E3%81%86%E6%93%8D%E4%BD%9C">コンテナ停止時に行う操作</h2>
+<ul>
+<li>VisualStudioCodeのターミナルで下記コマンドを実行
+<ul>
+<li>docker-compose stop</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A%E3%82%92%E8%B5%B7%E5%8B%95%E6%99%82%E3%81%AB%E8%A1%8C%E3%81%86%E6%93%8D%E4%BD%9C">コンテナを起動時に行う操作</h2>
+<ul>
+<li>VisualStudioCodeのターミナルで下記コマンドを実行
+<ul>
+<li>docker-compose start</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A%E3%82%92%E4%BD%9C%E6%88%90%E3%81%97%E3%81%AA%E3%81%8A%E3%81%97%E3%81%A6%E5%86%8D%E8%B5%B7%E5%8B%95">コンテナを作成しなおして再起動</h2>
+<ul>
+<li>VisualStudioCodeのターミナルで下記コマンドを実行
+<ul>
+<li>docker-compose down --rmi all --volumes</li>
+<li>docker-compose build --no-cache --force-rm</li>
+<li>docker-compose up -d</li>
+</ul>
+</li>
+</ul>
+<h2 id="php%E3%83%87%E3%83%90%E3%83%83%E3%82%B0%E5%AE%9F%E8%A1%8C%E3%82%92%E8%A1%8C%E3%81%86">PHPデバッグ実行を行う</h2>
+<ul>
+<li>VisualStudioCodeサイドナビの実行アイコンをクリック</li>
+<li>サイドメニュー上部の再生ボタンをクリック</li>
+<li>PHPソースコード上の任意行の列番号をクリックしブレークポイントを設定</li>
+<li>PHPプログラムを実行するとブレークポイントを設定した位置でプログラムが停止し、F11でステップ実行ができます</li>
+</ul>
+<h2 id="%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%AB%E6%8E%A5%E7%B6%9A">データベースに接続</h2>
+<ul>
+<li>HeidiSQLを起動</li>
+<li>IPは127.0.0.1、ポートは3306、.envファイルに記載されてユーザー名とパスワードを入力して開くボタンを押す</li>
+</ul>
+<h1 id="%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB">ファイル</h1>
+<ul>
+<li>WEBサーバーのログ
+<ul>
+<li>/logs/access.log</li>
+</ul>
+</li>
+<li>PHPエラーログ
+<ul>
+<li>/logs/php-error.log</li>
+</ul>
+</li>
+<li>mysqlの設定ファイル
+<ul>
+<li>/docker/mysql/my.conf</li>
+</ul>
+</li>
+<li>nginxの設定ファイル
+<ul>
+<li>/docker/nginx/default.conf</li>
+</ul>
+</li>
+<li>phpの設定ファイル
+<ul>
+<li>/docker/php/php.ini</li>
+</ul>
+</li>
+<li>php opcacheを有効にしないファイルリスト
+<ul>
+<li>/docker/php/php.ini</li>
+<li>Dockerからwindowsファイルシステムのアクセスが遅いので、laravelのようなサイズの大きいWEBフレームワークを使用するとページの表示が遅くなる。opcacheというコンパイルしたPHPコードをメモリにキャッシュする機能を使用して表示速度を上げる。
+有効にするとプログラムの即時反映がされなくなるので、開発者が更新するフォルダを除外リストに追加する。</li>
+</ul>
+</li>
+<li>phpのDockerファイル
+<ul>
+<li>/docker/php/Dockerfile</li>
+</ul>
+</li>
+<li>.環境設定ファイル(DB接続情報等)
+<ul>
+<li>/.env</li>
+</ul>
+</li>
+<li>DockerComposeファイル
+<ul>
+<li>docker-compose.yml</li>
+</ul>
+</li>
+</ul>
+
+</body>
+</html>
