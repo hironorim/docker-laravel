@@ -396,6 +396,21 @@ code {
 <li>https://qiita.com/deux222/items/af75319ece05653c4bb5</li>
 </ul>
 </li>
+<li>最強のLaravel開発環境をDockerを使って構築する【新編集版】
+<ul>
+<li>https://qiita.com/ucan-lab/items/5fc1281cd8076c8ac9f4</li>
+</ul>
+</li>
+<li>PHP7.4 ぼくのかんがえたさいきょうのphp.ini
+<ul>
+<li>https://qiita.com/ucan-lab/items/0d74378e1b9ba81699a9</li>
+</ul>
+</li>
+<li>Laravel 7.x デプロイ
+<ul>
+<li>https://readouble.com/laravel/7.x/ja/deployment.html</li>
+</ul>
+</li>
 </ul>
 <h2 id="%E9%96%8B%E7%99%BA%E3%83%89%E3%82%AD%E3%83%A5%E3%83%A1%E3%83%B3%E3%83%88">開発ドキュメント</h2>
 <ul>
@@ -404,14 +419,9 @@ code {
 <li>https://www.php.net/manual/ja/index.php</li>
 </ul>
 </li>
-<li>日本語laravel公式サイト
+<li>laravelドキュメント
 <ul>
-<li>http://laravel.jp/</li>
-</ul>
-</li>
-<li>英語laravel公式サイト
-<ul>
-<li>https://laravel.com/</li>
+<li>https://readouble.com/laravel/7.x/ja/</li>
 </ul>
 </li>
 <li>larravelチュートリアル
@@ -432,29 +442,23 @@ code {
 </ul>
 <h2 id="%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E9%96%8B%E7%99%BA%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89">ローカル開発環境構築</h2>
 <ul>
-<li>
-<p>以下からDockerDesktopのWindows版をダウンロードしインストールする</p>
+<li>以下からDockerDesktopのWindows版をダウンロードしインストールする
 <ul>
 <li>https://hub.docker.com/editions/community/docker-ce-desktop-windows</li>
 </ul>
 </li>
-<li>
-<p>以下を参考に自分のPCユーザーをdocker-usersグループに所属させる</p>
+<li>以下を参考に自分のPCユーザーをdocker-usersグループに所属させる
 <ul>
 <li>https://qiita.com/toro_ponz/items/d75706a3039f00ba1205</li>
 </ul>
 </li>
-<li>
-<p>以下からVisualStudio CodeのWindowszip版をダウンロードして任意のフォルダに展開</p>
+<li>以下からVisualStudio CodeのWindowszip版をダウンロードして任意のフォルダに展開
 <ul>
 <li>https://code.visualstudio.com/download</li>
 </ul>
 </li>
-<li>
-<p>VisualStudioCodeを起動してサイドナビの拡張機能アイコンをクリック</p>
-</li>
-<li>
-<p>下記拡張機能を検索してインストールする</p>
+<li>VisualStudioCodeを起動してサイドナビの拡張機能アイコンをクリック</li>
+<li>下記拡張機能を検索してインストールする
 <ul>
 <li>Docker</li>
 <li>Git History</li>
@@ -463,23 +467,18 @@ code {
 <li>PHP Intelephense</li>
 </ul>
 </li>
-<li>
-<p>SourceTreeに内蔵された下記gitフォルダにパスを通す</p>
+<li>SourceTreeに内蔵された下記gitフォルダにパスを通す
 <ul>
 <li>C:\Users[ログインユーザー名]\AppData\Local\Atlassian\SourceTree\git_local\bin</li>
 </ul>
 </li>
-<li>
-<p>SourceTreeをインストールしていない場合 Git for Windowsをダウンロードしてインストールする</p>
-</li>
-<li>
-<p>パスを通す方法は以下を参照</p>
+<li>パスを通す方法は以下を参照
 <ul>
 <li>https://qiita.com/shuhey/items/7ee0d25f14a997c9e285</li>
 </ul>
 </li>
-<li>
-<p>以下からHeidiSQLをダウンロードして任意のフォルダに展開</p>
+<li>SourceTreeをインストールしていない場合 Git for Windowsをダウンロードしてインストールする</li>
+<li>以下からHeidiSQLをダウンロードして任意のフォルダに展開
 <ul>
 <li>https://www.heidisql.com/download.php?download=portable-64</li>
 </ul>
@@ -512,7 +511,7 @@ code {
 <li>http://localhost:5000/</li>
 </ul>
 </li>
-<li>storageフォルダのpermissionエラーが出たら下記コマンドを実行して書き込み権限を付与する
+<li>storageフォルダのpermissionエラーが出たらコンテナにログインし下記コマンドを実行して書き込み権限を付与する
 <ul>
 <li>chmod -R 777 storage</li>
 </ul>
@@ -544,12 +543,21 @@ code {
 </ul>
 </li>
 </ul>
+<h2 id="php%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A%E3%81%AB%E3%83%AD%E3%82%B0%E3%82%A4%E3%83%B3">PHPコンテナにログイン</h2>
+<ul>
+<li>docker-compose exec php /bin/bash</li>
+<li>logoutコマンドでコンテナからログアウト</li>
+</ul>
 <h2 id="php%E3%83%87%E3%83%90%E3%83%83%E3%82%B0%E5%AE%9F%E8%A1%8C%E3%82%92%E8%A1%8C%E3%81%86">PHPデバッグ実行を行う</h2>
 <ul>
 <li>VisualStudioCodeサイドナビの実行アイコンをクリック</li>
 <li>サイドメニュー上部の再生ボタンをクリック</li>
 <li>PHPソースコード上の任意行の列番号をクリックしブレークポイントを設定</li>
 <li>PHPプログラムを実行するとブレークポイントを設定した位置でプログラムが停止し、F11でステップ実行ができます</li>
+</ul>
+<h2 id="visual-studio-code%E3%81%A7%E3%81%AEgit%E6%93%8D%E4%BD%9C">Visual Studio CodeでのGit操作</h2>
+<ul>
+<li>https://qiita.com/y-tsutsu/items/2ba96b16b220fb5913be</li>
 </ul>
 <h2 id="%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%AB%E6%8E%A5%E7%B6%9A">データベースに接続</h2>
 <ul>
@@ -581,6 +589,16 @@ code {
 <li>phpの設定ファイル
 <ul>
 <li>/docker/php/php.ini</li>
+</ul>
+</li>
+<li>phpの設定ファイル(本番用)
+<ul>
+<li>/docker/php/php.production.ini</li>
+</ul>
+</li>
+<li>phpfpmの設定ファイル
+<ul>
+<li>/docker/php/zzz-www.conf</li>
 </ul>
 </li>
 <li>php opcacheを有効にしないファイルリスト

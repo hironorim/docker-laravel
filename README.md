@@ -14,14 +14,18 @@ PHP + Nginx(WEBサーバー) + MySQL(DBサーバー)をDockerで動作させ、l
    - https://qiita.com/y-tsutsu/items/2ba96b16b220fb5913be
 - Visual Studio CodeでPHPをデバッグする方法
   - https://qiita.com/deux222/items/af75319ece05653c4bb5
+- 最強のLaravel開発環境をDockerを使って構築する【新編集版】
+  - https://qiita.com/ucan-lab/items/5fc1281cd8076c8ac9f4
+- PHP7.4 ぼくのかんがえたさいきょうのphp.ini
+  - https://qiita.com/ucan-lab/items/0d74378e1b9ba81699a9
+- Laravel 7.x デプロイ
+  - https://readouble.com/laravel/7.x/ja/deployment.html
 
 ## 開発ドキュメント
 - PHPドキュメント
   - https://www.php.net/manual/ja/index.php
-- 日本語laravel公式サイト
-  - http://laravel.jp/
-- 英語laravel公式サイト
-  - https://laravel.com/
+- laravelドキュメント
+  - https://readouble.com/laravel/7.x/ja/
 - larravelチュートリアル
   - https://hobby23.net/archives/laravel-tutorial/
 - nginxについてまとめ(設定編)
@@ -34,7 +38,6 @@ PHP + Nginx(WEBサーバー) + MySQL(DBサーバー)をDockerで動作させ、l
    - https://hub.docker.com/editions/community/docker-ce-desktop-windows
 - 以下を参考に自分のPCユーザーをdocker-usersグループに所属させる
    - https://qiita.com/toro_ponz/items/d75706a3039f00ba1205
-
 - 以下からVisualStudio CodeのWindowszip版をダウンロードして任意のフォルダに展開
   - https://code.visualstudio.com/download
 - VisualStudioCodeを起動してサイドナビの拡張機能アイコンをクリック
@@ -46,9 +49,9 @@ PHP + Nginx(WEBサーバー) + MySQL(DBサーバー)をDockerで動作させ、l
   - PHP Intelephense
 - SourceTreeに内蔵された下記gitフォルダにパスを通す
   - C:\Users\[ログインユーザー名]\AppData\Local\Atlassian\SourceTree\git_local\bin
-- SourceTreeをインストールしていない場合 Git for Windowsをダウンロードしてインストールする
 - パスを通す方法は以下を参照
   - https://qiita.com/shuhey/items/7ee0d25f14a997c9e285
+- SourceTreeをインストールしていない場合 Git for Windowsをダウンロードしてインストールする
 - 以下からHeidiSQLをダウンロードして任意のフォルダに展開
   - https://www.heidisql.com/download.php?download=portable-64
 
@@ -66,7 +69,7 @@ PHP + Nginx(WEBサーバー) + MySQL(DBサーバー)をDockerで動作させ、l
 中身をプロジェクトフォルダの同じ階層に移動し空のプロジェクトフォルダは削除する
 - 下記URLをブラウザで開くとＴOPページが表示される
   - http://localhost:5000/
-- storageフォルダのpermissionエラーが出たら下記コマンドを実行して書き込み権限を付与する
+- storageフォルダのpermissionエラーが出たらコンテナにログインし下記コマンドを実行して書き込み権限を付与する
   - chmod -R 777 storage
 
 ## コンテナ停止時に行う操作
@@ -83,11 +86,18 @@ PHP + Nginx(WEBサーバー) + MySQL(DBサーバー)をDockerで動作させ、l
   - docker-compose build --no-cache --force-rm
   - docker-compose up -d
 
+## PHPコンテナにログイン
+  - docker-compose exec php /bin/bash
+  - logoutコマンドでコンテナからログアウト
+
 ## PHPデバッグ実行を行う
 - VisualStudioCodeサイドナビの実行アイコンをクリック
 - サイドメニュー上部の再生ボタンをクリック
 - PHPソースコード上の任意行の列番号をクリックしブレークポイントを設定
 - PHPプログラムを実行するとブレークポイントを設定した位置でプログラムが停止し、F11でステップ実行ができます
+
+## Visual Studio CodeでのGit操作
+  - https://qiita.com/y-tsutsu/items/2ba96b16b220fb5913be
 
 ## データベースに接続
  - HeidiSQLを起動
@@ -104,6 +114,10 @@ PHP + Nginx(WEBサーバー) + MySQL(DBサーバー)をDockerで動作させ、l
    - /docker/nginx/default.conf
  - phpの設定ファイル
    - /docker/php/php.ini
+ - phpの設定ファイル(本番用)
+   - /docker/php/php.production.ini
+ - phpfpmの設定ファイル
+   - /docker/php/zzz-www.conf
  - php opcacheを有効にしないファイルリスト
    - /docker/php/php.ini
    - Dockerからwindowsファイルシステムのアクセスが遅いので、laravelのようなサイズの大きいWEBフレームワークを使用するとページの表示が遅くなる。opcacheというコンパイルしたPHPコードをメモリにキャッシュする機能を使用して表示速度を上げる。
